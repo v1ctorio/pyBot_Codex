@@ -28,7 +28,7 @@ async def on_ready():
 async def explain(ctx, *, arg):
     code = await depyify(arg)
     explanation = OpenAI.explain(code)
-    await ctx.send(f"`{explanation}`")
+    await ctx.send(f"`1.{explanation}`")
 
 
 @client.command()
