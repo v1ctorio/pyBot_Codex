@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import OpenAI
 
+
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 PREFIX = "py "
@@ -71,6 +72,7 @@ print(output)
 
 @client.command()
 async def explain(ctx, *, arg):
+    print(ctx.message.author)
     async with ctx.typing():
         code = await depyify(arg)
         explanation = OpenAI.explain(code)
@@ -79,6 +81,7 @@ async def explain(ctx, *, arg):
 
 @client.command()
 async def code(ctx, *, arg):
+    print(ctx.message.author)
     async with ctx.typing():
         code = OpenAI.code(arg)
         code = await pyify(code)
@@ -87,6 +90,7 @@ async def code(ctx, *, arg):
 
 @client.command()
 async def ask(ctx, *, question):
+    print(ctx.message.author)
     async with ctx.typing():
         answer = OpenAI.ask(question)
         await ctx.send(f"{answer}")

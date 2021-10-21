@@ -18,7 +18,7 @@ def explain(code):
         stop=["\"\"\""]
     )
     story = response['choices'][0]['text']
-    print(prompt + story)
+    print(f"prompt: {code}\nquery: {story}")
     return str(story)
 
 
@@ -37,7 +37,7 @@ def code(instructions):
         stop=['"""']
     )
     story = response['choices'][0]['text']
-    print(prompt + story)
+    print(f"prompt: {instructions}\nquery: {story}")
     return str(story)
 
 
@@ -58,5 +58,5 @@ def ask(question):
         stop=['You:']
     )
     story = response['choices'][0]['text']
-    print(prompt + story)
+    print(f"prompt: {question}\nquery: {story}")
     return str(story)
